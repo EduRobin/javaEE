@@ -18,7 +18,6 @@ export class RegisterComponent implements OnInit {
   email: string;
   password: string;
   url = 'http://localhost:4200/OPSapimanagers/api/users/register';
-  hovno: string;
 
   constructor( private activatedRouter: ActivatedRoute, private http: HttpClient, private router: Router) {
 
