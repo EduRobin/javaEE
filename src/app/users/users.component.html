@@ -1,1 +1,22 @@
-<p>users works!</p>
+<div class="container"  >
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">id</th>
+      <th scope="col">jmeno / email</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of users" >
+      <th scope="row">1</th>
+      <td>{{user.id}}</td>
+      <td>{{user.fullname}}</td>
+      <button class="btn" (click)="detaily(user.id)">Detaily</button>
+
+      <button class="btn" (click)="smaz(user.id)">Smaz</button>
+    </tr>
+
+    </tbody>
+  </table>
+</div>

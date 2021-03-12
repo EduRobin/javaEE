@@ -1,10 +1,7 @@
-
 import { Component, OnInit } from '@angular/core';
+import {User} from '../User';
 import {ActivatedRoute, Router} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
-import {User} from '../user';
-
-
 
 @Component({
   selector: 'app-register',
@@ -12,35 +9,26 @@ import {User} from '../user';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
+  jmeno = '';
+  heslo = '';
+  user: User[] = [];
+  url = '/api/users/register';
 
-  fullname: string;
-  username: string;
-  email: string;
-  password: string;
-  url = 'http://localhost:4200/OPSapimanagers/api/users/register';
-
-  constructor( private activatedRouter: ActivatedRoute, private http: HttpClient, private router: Router) {
-
-  }
-
-  submit() {
-    const body: User = {
-      fullname: this.fullname,
-      username: this.username,
-      email: this.email,
-      password: this.password
-    };
-
-    console.log(body);
-    this.http.post(this.url, body, {observe: 'response'}).subscribe( response => {
-      console.log(response);
-
-    }, error => {
-      console.log(error);
-    });
-  }
+  constructor(private router: Router, private http: HttpClient, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
   }
 
+  posli() {
+    const body = {
+      jmeno: this.jmeno,
+      heslo: this.heslo
+    }
+    this.http.post(this.url, body, {observe: 'response'}).subscribe((data) => {
+      console.log(data);
+      this.router.navigate(['/users']);
+
+
+    });
+  }
 }
