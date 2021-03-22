@@ -13,12 +13,12 @@
           <form id="login-form" class="form" action="" method="post">
             <h3 class="text-center text-info">Login</h3>
             <div class="form-group">
-              <label for="username" class="text-info">Jmeno: </label><br>
-              <input type="text" name="username" id="username" class="form-control" [(ngModel)]="jmeno">
+              <label for="jmeno" class="text-info">Jmeno: </label><br>
+              <input type="text" name="jmeno" id="jmeno" class="form-control" [(ngModel)]="jmeno">
             </div>
             <div class="form-group">
-              <label for="password" class="text-info">Heslo: </label><br>
-              <input type="password" name="password" id="password" class="form-control" [(ngModel)]="heslo">
+              <label for="heslo" class="text-info">Heslo: </label><br>
+              <input type="password" name="heslo" id="heslo" class="form-control" [(ngModel)]="heslo">
             </div>
             <div class="form-group">
               <button class="btn btn-info btn-md" (click)="posli()">Prihlasit</button>
@@ -31,3 +31,4 @@
   </div>
 </div>
 </body>
+<router-outlet></router-outlet>

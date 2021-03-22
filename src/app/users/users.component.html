@@ -4,14 +4,14 @@
     <tr>
       <th scope="col">#</th>
       <th scope="col">id</th>
-      <th scope="col">jmeno / email</th>
+      <th scope="col">jmeno</th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let user of users" >
       <th scope="row">1</th>
       <td>{{user.id}}</td>
-      <td>{{user.fullname}}</td>
+      <td>{{user.jmeno}}</td>
       <button class="btn" (click)="detaily(user.id)">Detaily</button>
 
       <button class="btn" (click)="smaz(user.id)">Smaz</button>

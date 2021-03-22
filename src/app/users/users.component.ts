@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {User} from '../User';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
+import {TokenHolderService} from '../token-holder.service';
 
 @Component({
   selector: 'app-users',
@@ -11,10 +12,10 @@ import {Router} from '@angular/router';
 export class UsersComponent implements OnInit {
 
   users: User[] = [];
-  url = 'api/users/test';
+  url = 'api/users/test/';
 
-  constructor(private http: HttpClient, private router: Router) {
-    this.http.get(this.url, {headers: {token: 'd3b62774-4260-4413-bec6-24ccd72638b9'}}  ).subscribe((data: User[]) => {
+  constructor(private http: HttpClient, private router: Router, private tokenHolder: TokenHolderService) {
+    this.http.get(this.url, {headers: {token: tokenHolder.token}}  ).subscribe((data: User[]) => {
       this.users = data;
     });
   }
